@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="row justify-content-start">
+    {% for post in posts %}
+    <div class="col-4">
+        <div class="card mt-3">
+            <img src="{{post.plant_image}}" alt="{{post.plant_name}}" class="plant-image mx-auto rounded m-2" />
+            <div class="card-body">
+                <h5 class="card-title">{{post.plant_name}}</h5>
+                <p class="card-text"><strong>Looking for</strong>: {{post.looking_for}}</p>
+                <p class="card-text"><strong>Location</strong>: {{post.location}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+
+{% endblock %}
