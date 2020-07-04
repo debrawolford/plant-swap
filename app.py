@@ -52,8 +52,16 @@ def update_post(post_id):
             "plant_image": request.form.get("plant_image"),
             "date_posted": request.form.get("date_posted"),
             "email": request.form.get("email"),
+            "active": "True",
         },
     )
+    return redirect(url_for("get_posts"))
+
+
+@app.route("/remove_post/<post_id>", methods=["POST", "GET"])
+def remove_post(post_id):
+    posts = mongo.db.posts
+    posts.remove({"_id": ObjectId(post_id)})
     return redirect(url_for("get_posts"))
 
 
@@ -61,4 +69,3 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"), port=os.environ.get("PORT"), debug=True,
     )
-
