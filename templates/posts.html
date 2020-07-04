@@ -9,7 +9,7 @@
             <img src="{{post.plant_image}}" alt="{{post.plant_name}}" class="plant-image mx-auto card-img-top" />
             <div class="card-body">
                 <p class="text-center">
-                    <a href="mailto:{{post.email}}" class="btn btn-outline-info">Edit</a>
+                    <a href="{{url_for('edit_post', post_id=post._id)}}" class="btn btn-outline-info">Edit</a>
                     <a href="mailto:{{post.email}}" class="btn btn-outline-danger">Delete</a></p>
                 <p class="card-text"><strong>Offering</strong>: {{post.plant_name}}</p>
                 <p class="card-text"><strong>Looking for</strong>: {{post.looking_for}}</p>

@@ -40,6 +40,23 @@ def edit_post(post_id):
     return render_template("editpost.html", post=the_post)
 
 
+@app.route("/update_post/<post_id>", methods=["POST"])
+def update_post(post_id):
+    posts = mongo.db.posts
+    posts.update(
+        {"_id": ObjectId(post_id)},
+        {
+            "plant_name": request.form.get("plant_name"),
+            "location": request.form.get("location"),
+            "looking_for": request.form.get("looking_for"),
+            "plant_image": request.form.get("plant_image"),
+            "date_posted": request.form.get("date_posted"),
+            "email": request.form.get("email"),
+        },
+    )
+    return redirect(url_for("get_posts"))
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"), port=os.environ.get("PORT"), debug=True,
