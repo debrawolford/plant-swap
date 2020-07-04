@@ -1,3 +1,35 @@
+/* Site-wide styles */
+body,
 html {
-    background-color: red;
+    height: 100%;
+}
+
+/* Images */
+.plant-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* Buttons */
+.btn-outline-success {
+    color: #004225;
+    border-color: #004225;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:active,
+.btn-outline-success:focus,
+.btn-outline-success:active:focus {
+    background-color: #004225;
+    border-color: #004225;
+    color: #ffffff;
+}
+
+/* Posts */
+.card-footer {
+    background-color: #004225;
+    color: #ffffff;
+    opacity: 0.5;
 }
