@@ -12,7 +12,13 @@ body {
 
 .main-content {
     padding-top: 100px;
-    margin-bottom: 550px;
+    margin-bottom: 100px;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        margin-bottom: 300px;
+    }
 }
 
 /* Navbar */
@@ -55,12 +61,12 @@ footer a:hover {
 }
 
 #footer-text {
-    padding: 60px 0 40px;
+    padding-top: 20px;
     text-align: left;
 }
 
 #footer-social {
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
@@ -76,6 +82,8 @@ footer a:hover {
     -o-transition: all 0.35s ease-in-out;
     text-rendering: optimizeLegibility;
 }
+
+
 
 /* Images */
 .plant-image {
