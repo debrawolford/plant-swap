@@ -1,23 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Plant Swap</title>
-
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='images/plant-swap-title-icon.png')}}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 
 </head>
 
 <body>
+    <!--- Start of Navbar -->
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <a class="navbar-brand" href="{{url_for("get_posts")}}"><img
+                        src="{{url_for('static', filename='images/plant-swap-navbar.png')}}" alt="Plant Swap"
+                        id="plant-swap-logo"></a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarNavMobile" aria-controls="#navbarNavMobile" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavMobile">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("add_post")}}">Add Post</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--End of Navbar -->
     <!-- Start of content -->
-    <div class="container">
+    <main class="container main-content">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
+    <!--End of content-->
+    <!-- Start of Footer-->
+    <footer class="container fixed-bottom">
+        <div class=" row" id="footer-text">
+            <div class="col-6" id="footer-about">
+                <h4>About: </h4>
+                <p>At Plant Swap we truly believe in "One Man's Trash Is Another Man's Treasure". Post all the plants
+                    you don't want anymore and trade them with other plant enthusiasts in your area for plants you do
+                    want! </p>
+                <p>&copy; Plant Swap 2020</p>
+            </div>
+            <div class="col-5 offset-md-1" id="footer-links">
+                <h4> Sitemap:</h4>
+                <p><a class="footer-link" href="{{url_for("get_posts")}}">Home</a></p>
+                <p><a class="footer-link" href="{{url_for("get_posts")}}">Posts</a></p>
+                <p><a class="footer-link" href="{{url_for("add_post")}}">Add Post</a></p>
+            </div>
+        </div>
+        <div class="row" id="footer-social">
+            <div class="col text-center">
+                <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a target=_blank rel="noopener" href="http://www.instagram.com"><i
+                                class="fa fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                    <li class="list-inline-item"><a target=_blank rel="noopener" href="http://www.facebook.com"><i
+                                class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span></a></li>
+                    <li class="list-inline-item"><a target=_blank rel="noopener" href="http://www.twitter.com"><i
+                                class="fa fa-twitter-square"></i><span class="sr-only">Twitter</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!--End of Footer-->
     <!-- JavaScript -->
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -29,6 +87,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+
     <script>
         $(document).ready(function () {
             $('#date').val(new Date().toDateInputValue());

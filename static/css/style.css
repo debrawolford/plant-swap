@@ -4,6 +4,79 @@ html {
     height: 100%;
 }
 
+body {
+    color: #696969;
+    min-height: 100%;
+    margin-bottom: 100px;
+}
+
+.main-content {
+    padding-top: 100px;
+    margin-bottom: 550px;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: white;
+    color: #696969;
+}
+
+#plant-swap-logo {
+    height: 60px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline-color: #d3d3d3;
+    outline-width: thin;
+}
+
+/* Footer */
+
+footer {
+    background-color: white;
+    color: #696969;
+}
+
+footer a {
+    color: #696969;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #004225;
+    text-decoration: none;
+}
+
+#footer-text {
+    padding: 60px 0 40px;
+    text-align: left;
+}
+
+#footer-social {
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+#footer-social li {
+    font-size: 35px;
+    line-height: 10px;
+    width: 30px;
+    height: 30px;
+    padding: 12px 0;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    text-rendering: optimizeLegibility;
+}
+
 /* Images */
 .plant-image {
     height: 250px;
