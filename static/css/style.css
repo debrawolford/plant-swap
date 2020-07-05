@@ -7,7 +7,7 @@ html {
 body {
     color: #696969;
     min-height: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 .main-content {
@@ -16,7 +16,7 @@ body {
 }
 
 @media (min-width: 992px) {
-    .main-content {
+    body {
         margin-bottom: 300px;
     }
 }
