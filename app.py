@@ -3,6 +3,8 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from passlib.hash import pbkdf2_sha256
+from wtforms import SelectField
+from flask_wtf import FlaskForm
 
 
 if os.path.exists("env.py"):
@@ -52,7 +54,6 @@ def update_post(post_id):
             "plant_image": request.form.get("plant_image"),
             "date_posted": request.form.get("date_posted"),
             "email": request.form.get("email"),
-            "active": "True",
         },
     )
     return redirect(url_for("get_posts"))
@@ -63,6 +64,10 @@ def remove_post(post_id):
     posts = mongo.db.posts
     posts.remove({"_id": ObjectId(post_id)})
     return redirect(url_for("get_posts"))
+
+
+class Form(FlaskForm):
+    country = SelectField("country", choices=[])
 
 
 if __name__ == "__main__":
