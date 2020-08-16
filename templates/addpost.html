@@ -30,9 +30,13 @@
                                 aria-describedby="lookingFor" placeholder="e.g. Aloe Vera" required>
                         </div>
                         <div class="form-group">
-                            <label for="location">Your Location:</label>
-                            <input type="text" class="form-control" id="location" name="location"
-                                aria-describedby="location" placeholder="City, Country" required>
+                            <label for="exampleFormControlSelect1">Your Country:</label>
+                            <select class="form-control" id="location" name="location" required>
+                                <option value="">Select...</option>
+                                {% for country in countries|sort(attribute='country') %}
+                                <option value="{{country.country}}">{{country.country}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email:</label>

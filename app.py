@@ -2,9 +2,6 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from passlib.hash import pbkdf2_sha256
-from wtforms import SelectField
-from flask_wtf import FlaskForm
 
 
 if os.path.exists("env.py"):
@@ -15,7 +12,11 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "plant_swap"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
+
+# Variables
 mongo = PyMongo(app)
+posts = mongo.db.posts
+countries = mongo.db.countries
 
 
 @app.route("/")
@@ -30,30 +31,28 @@ def about():
 
 @app.route("/get_posts")
 def get_posts():
-    return render_template("posts.html", posts=mongo.db.posts.find())
+    return render_template("posts.html", posts=posts.find())
 
 
 @app.route("/add_post")
 def add_post():
-    return render_template("addpost.html")
+    return render_template("addpost.html", countries=countries.find())
 
 
 @app.route("/submit_post", methods=["POST"])
 def submit_post():
-    posts = mongo.db.posts
     posts.insert_one(request.form.to_dict())
     return redirect(url_for("get_posts"))
 
 
 @app.route("/edit_post/<post_id>")
 def edit_post(post_id):
-    the_post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
+    the_post = posts.find_one({"_id": ObjectId(post_id)})
     return render_template("editpost.html", post=the_post)
 
 
 @app.route("/update_post/<post_id>", methods=["POST"])
 def update_post(post_id):
-    posts = mongo.db.posts
     posts.update(
         {"_id": ObjectId(post_id)},
         {
@@ -70,13 +69,8 @@ def update_post(post_id):
 
 @app.route("/remove_post/<post_id>", methods=["POST", "GET"])
 def remove_post(post_id):
-    posts = mongo.db.posts
     posts.remove({"_id": ObjectId(post_id)})
     return redirect(url_for("get_posts"))
-
-
-class Form(FlaskForm):
-    country = SelectField("country", choices=[])
 
 
 if __name__ == "__main__":
