@@ -88,7 +88,7 @@ footer a:hover {
 
 #background-image {
     height: 70vh;
-    background-image: url("../images/plant-swap-bg.png");
+    background-image: image-url("../images/plant-swap-bg.png");
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
