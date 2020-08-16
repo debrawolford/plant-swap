@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container main-content">
+    <div class="row mx-auto col-12">
+        <img src="{{url_for('static', filename='images/how-to.png')}}" class="img-fluid" alt="How to use Plant Swap">
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 my-auto">
+            <h4>1. Choose the plant that you would like to swap.</h4>
+            <p>Once you have chosen a plant, go <a href="{{url_for("get_posts")}}">here</a> and have a look to see if
+                someone in your area is looking for it and if you like the plant they are offering. If so, you can
+                contact them by selecting "Get in touch". If not,
+                go to the next step.</p>
+        </div>
+        <div class=" d-none d-md-block col-md-6">
+            <img src="{{url_for('static', filename='images/step-1.png')}}" class="img-fluid" alt="Woman with plant">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class=" d-none d-md-block col-md-6">
+            <img src="{{url_for('static', filename='images/step-2.png')}}" class="img-fluid" alt="Plant with camera">
+        </div>
+        <div class="col-md-6 my-auto">
+            <h4>2. Take a picture of your plant.</h4>
+            <p>Get your plant ready for the spotlight and take some pictures. When ready, upload the image to a website
+                such as <a href="https://imgbb.com/">https://imgbb.com/</a> and copy the image link.</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 my-auto">
+            <h4>3. Upload your plant.</h4>
+            <p>Go to <a href="{{url_for("add_post")}}">Add Post</a> and fill in the form. Make sure to use the url you
+                copied earlier for the image. Once you submit, your plant should show up on the <a
+                    href="{{url_for("get_posts")}}">Posts</a> page. Once it's there, you simply wait for someone to get
+                in touch with you.</p>
+        </div>
+        <div class=" d-none d-md-block col-md-6">
+            <img src="{{url_for('static', filename='images/step-3.png')}}" class="img-fluid" alt="Woman with plant">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class=" d-none d-md-block col-md-6">
+            <img src="{{url_for('static', filename='images/step-4.png')}}" class="img-fluid" alt="Plant with camera">
+        </div>
+        <div class="col-md-6 my-auto">
+            <h4>2. Get your new plant!</h4>
+            <p>Once someone contacts you, you can sort out the details with them on how to swap. You can either send the
+                plants to each other via post or meet up in person if you're nearby, that's completely up to you!</p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
