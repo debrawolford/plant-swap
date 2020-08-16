@@ -1,7 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="container main-content">
-
+    <div class="row">
+        <form action="{{  url_for('filter_posts') }}" method="POST" class="mx-auto form-inline mt-3">
+            <div class="form-group mb-2 mx-2">
+                <select class="form-control" id="location" name="location" required>
+                    <option value="">Your Country</option>
+                    {% for country in countries|sort(attribute='country') %}
+                    <option value="{{country.country}}">{{country.country}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success mb-2 mx-auto">Filter</button>
+        </form>
+    </div>
+    {% if number_results == 0 %}
+    <h4 class="mt-5 mx-auto text-center"> There are no swaps available in your area. &#128546; If you still want a new
+        plant, please create a new post:
+    </h4>
+    <div class="text-center mt-5 mx-auto">
+        <a href=" {{url_for('add_post')}}" class="btn btn-outline-success btn-lg">Add Post</a>
+        <a href="{{url_for('get_posts')}}" class="btn btn-outline-info text-right btn-lg">See All Posts</a>
+    </div>
+    {% endif %}
     <div class="row">
         {% for post in posts|sort(attribute='date_posted', reverse = True) %}
         <div class="col-12 col-md-6 col-lg-4 ">

@@ -31,7 +31,7 @@ def about():
 
 @app.route("/get_posts")
 def get_posts():
-    return render_template("posts.html", posts=posts.find())
+    return render_template("posts.html", posts=posts.find(), countries=countries.find())
 
 
 @app.route("/add_post")
@@ -71,6 +71,18 @@ def update_post(post_id):
 def remove_post(post_id):
     posts.remove({"_id": ObjectId(post_id)})
     return redirect(url_for("get_posts"))
+
+
+@app.route("/filter_posts", methods=["POST"])
+def filter_posts():
+    filter_results = posts.find({"location": request.form.get("location")})
+    number_results = posts.count_documents({"location": request.form.get("location")})
+    return render_template(
+        "posts.html",
+        posts=filter_results,
+        countries=countries.find(),
+        number_results=number_results,
+    )
 
 
 if __name__ == "__main__":
