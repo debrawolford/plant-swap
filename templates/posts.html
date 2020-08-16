@@ -15,12 +15,16 @@
         </form>
     </div>
     {% if number_results == 0 %}
-    <h4 class="mt-5 mx-auto text-center"> There are no swaps available in your area. &#128546; If you still want a new
-        plant, please create a new post:
-    </h4>
-    <div class="text-center mt-5 mx-auto">
-        <a href=" {{url_for('add_post')}}" class="btn btn-outline-success btn-lg">Add Post</a>
-        <a href="{{url_for('get_posts')}}" class="btn btn-outline-info text-right btn-lg">See All Posts</a>
+    <div class=" row no-results">
+        <h4 class="mt-5 mx-auto text-center col-8"> There are no swaps available in your area. &#128546; If you still
+            want
+            a new
+            plant, please create a new post:
+        </h4>
+        <div class="text-center mt-5 mx-auto col-md-8">
+            <a href=" {{url_for('add_post')}}" class="btn btn-outline-success btn-lg mb-2">Add Post</a>
+            <a href="{{url_for('get_posts')}}" class="btn btn-outline-info text-right btn-lg mb-2">See All Posts</a>
+        </div>
     </div>
     {% endif %}
     <div class="row">

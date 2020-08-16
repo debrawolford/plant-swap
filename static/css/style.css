@@ -139,3 +139,20 @@ footer a:hover {
         font-size: 30px;
     }
 }
+
+/* Text and buttons that appear when there are no results from the filter 
+on the posts page */
+
+@media (min-width: 768px) {
+    .no-results {
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+}
+
+@media (min-width: 992px) {
+    .no-results {
+        margin-top: 20px;
+        margin-bottom: 300px;
+    }
+}
