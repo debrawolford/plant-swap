@@ -31,7 +31,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavMobile">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("home")}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Posts</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("add_post")}}">Add Post</a>
                     </div>
                 </div>
@@ -40,24 +41,24 @@
     </header>
     <!--End of Navbar -->
     <!-- Start of content -->
-    <main class="container main-content">
-        {% block content %}
-        {% endblock %}
-    </main>
+
+    {% block content %}
+    {% endblock %}
     <!--End of content-->
     <!-- Start of Footer-->
     <footer class="container">
+        <hr>
         <div class=" row" id="footer-text">
-            <div class="d-none d-lg-block col-lg-6" id="footer-about">
+            <div class="d-none d-md-block col-md-6" id="footer-about">
                 <h4>About: </h4>
                 <p>At Plant Swap we truly believe in "One Man's Trash Is Another Man's Treasure". Post all the plants
                     you don't want anymore and trade them with other plant enthusiasts in your area for plants you do
                     want! </p>
                 <p>&copy; Plant Swap 2020</p>
             </div>
-            <div class="d-none d-lg-block col-5 offset-lg-1" id="footer-links">
+            <div class="d-none d-md-block col-5 offset-md-1" id="footer-links">
                 <h4> Sitemap:</h4>
-                <p><a class="footer-link" href="{{url_for("get_posts")}}">Home</a></p>
+                <p><a class="footer-link" href="{{url_for("home")}}">Home</a></p>
                 <p><a class="footer-link" href="{{url_for("get_posts")}}">Posts</a></p>
                 <p><a class="footer-link" href="{{url_for("add_post")}}">Add Post</a></p>
             </div>
