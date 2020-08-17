@@ -31,10 +31,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavMobile">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link mr-2" href="{{url_for("index")}}">Home</a>
+                        {% if session["username"] %}
+                        <a class="nav-item nav-link mr-2" href="{{url_for("account")}}">My Account</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Posts</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("add_post")}}">Add Post</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("about")}}">How To Swap</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("logout")}}">Sign Out</a>
+                        {% else %}
+                        <a class="nav-item nav-link mr-2" href="{{url_for("index")}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("login")}}">Sign In</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("register")}}">Register</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("about")}}">How To Swap</a>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
@@ -42,7 +50,6 @@
     </header>
     <!--End of Navbar -->
     <!-- Start of content -->
-
     {% block content %}
     {% endblock %}
     <!--End of content-->

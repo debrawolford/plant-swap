@@ -1,3 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
+<main class="container main-content">
+    {% if "username" not in session %}
+    <div class="row">
+        <p class="mt-3 col-10 col-md-8 mx-auto text-center error">You are not logged in! Please register/log in <a
+                href="{{url_for("register")}}">here</a>.</p>
+    </div>
+    {% else %}
+    <div class="row">
+        <h4>{{ session["username"]}}'s Posts</h4>
+    </div>
+    <div class="row">
+        {% for post in posts|sort(attribute='date_posted', reverse = True) %}
+        {% if session["email"] == post.email %}
+        <div class="col-12 col-md-6 col-lg-4 ">
+            <div class="card mt-3">
+                <img src="{{post.plant_image}}" alt="{{post.plant_name}}" class="plant-image mx-auto card-img-top" />
+                <div class="card-body">
+                    <p class="text-center">
+
+                        <p class="card-text"><strong>Offering</strong>: {{post.plant_name}}</p>
+                        <p class="card-text"><strong>Looking for</strong>: {{post.looking_for}}</p>
+                        <p class="card-text"><strong>Location</strong>: {{post.location}}</p>
+                        <div class="text-center">
+                            <a href="{{url_for('edit_post', post_id=post._id)}}"
+                                class="btn btn-outline-info text-right">Edit</a>
+                        </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        {{post.date_posted}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-outline-danger mx-auto" data-toggle="modal"
+            data-target="#deleteConfirmation">Delete Account</button>
+    </div>
+    {% endif %}
+</main>
+<!--Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="deleteConfirmation">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure you want to delete your account?</h5>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel</button>
+                <a href='{{url_for('remove_account', email=session["email"])}}'
+                    class="btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

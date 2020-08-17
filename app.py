@@ -22,7 +22,7 @@ users = mongo.db.users
 @app.route("/")
 def index():
     if "username" in session:
-        return render_template("account.html")
+        return redirect(url_for("account"))
     return render_template("index.html")
 
 
@@ -38,6 +38,7 @@ def login():
                 == current_user["password"]
             ):
                 session["username"] = request.form.get("username").lower()
+                session["email"] = current_user["email"]
                 return redirect(url_for("index"))
             else:
                 return render_template("error-login.html")
@@ -57,11 +58,12 @@ def register():
             users.insert_one(
                 {
                     "username": request.form.get("username").lower(),
-                    "email": request.form.get("email"),
+                    "email": request.form.get("email").lower(),
                     "password": hashpass,
                 },
             )
             session["username"] = request.form.get("username").lower()
+            session["email"] = request.form.get("email").lower()
             return redirect(url_for("index"))
         else:
             return render_template("error-register.html")
@@ -69,9 +71,29 @@ def register():
         return render_template("register.html")
 
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template("index.html")
+
+
+@app.route("/account")
+def account():
+    return render_template(
+        "account.html", posts=posts.find(), countries=countries.find()
+    )
+
+
+@app.route("/remove_account/<email>", methods=["POST", "GET"])
+def remove_account(email):
+    posts.remove({"email": session["email"]})
+    users.remove({"email": session["email"]})
+    return redirect(url_for("logout"))
+
+
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html",)
 
 
 @app.route("/get_posts")
@@ -86,14 +108,23 @@ def add_post():
 
 @app.route("/submit_post", methods=["POST"])
 def submit_post():
-    posts.insert_one(request.form.to_dict())
+    posts.insert_one(
+        {
+            "plant_name": request.form.get("plant_name"),
+            "location": request.form.get("location"),
+            "looking_for": request.form.get("looking_for"),
+            "plant_image": request.form.get("plant_image"),
+            "date_posted": request.form.get("date_posted"),
+            "email": request.form.get("email").lower(),
+        },
+    )
     return redirect(url_for("get_posts"))
 
 
 @app.route("/edit_post/<post_id>")
 def edit_post(post_id):
     the_post = posts.find_one({"_id": ObjectId(post_id)})
-    return render_template("editpost.html", post=the_post)
+    return render_template("editpost.html", post=the_post, countries=countries.find())
 
 
 @app.route("/update_post/<post_id>", methods=["POST"])
@@ -106,7 +137,7 @@ def update_post(post_id):
             "looking_for": request.form.get("looking_for"),
             "plant_image": request.form.get("plant_image"),
             "date_posted": request.form.get("date_posted"),
-            "email": request.form.get("email"),
+            "email": request.form.get("email").lower(),
         },
     )
     return redirect(url_for("get_posts"))
@@ -115,7 +146,7 @@ def update_post(post_id):
 @app.route("/remove_post/<post_id>", methods=["POST", "GET"])
 def remove_post(post_id):
     posts.remove({"_id": ObjectId(post_id)})
-    return redirect(url_for("get_posts"))
+    return redirect(url_for("account"))
 
 
 @app.route("/filter_posts", methods=["POST"])
