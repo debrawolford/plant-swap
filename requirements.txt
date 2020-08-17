@@ -1,6 +1,10 @@
+bcrypt==3.2.0
+cffi==1.14.2
 click==7.1.2
 dnspython==2.0.0
+flash==1.0.3
 Flask==1.1.2
+Flask-Bcrypt==0.7.1
 Flask-PyMongo==2.3.0
 Flask-WTF==0.14.3
 itsdangerous==1.1.0
@@ -8,6 +12,8 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 mongo==0.2.0
 passlib==1.7.2
+pycparser==2.20
 pymongo==3.11.0
+six==1.15.0
 Werkzeug==1.0.1
 WTForms==2.3.3
