@@ -117,7 +117,7 @@ footer a:hover {
     opacity: 0.5;
 }
 
-/* Jumbotron styling */
+/* Jumbotron  */
 
 .jumbotron {
     background-color: #FFFFFF;
@@ -155,4 +155,26 @@ on the posts page */
         margin-top: 20px;
         margin-bottom: 300px;
     }
+}
+
+/* Register text on Home Page */
+
+#reg-text {
+    font-size: 9px;
+}
+
+#reg-text a {
+    color: #004225;
+}
+
+@media (min-width: 768px) {
+    #reg-text {
+        font-size: 12px;
+    }
+}
+
+/* Error text when logging in/registering */
+
+.error {
+    color: #FF0000
 }

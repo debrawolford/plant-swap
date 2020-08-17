@@ -21,7 +21,7 @@
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="{{url_for("home")}}"><img
+                <a class="navbar-brand" href="{{url_for("index")}}"><img
                         src="{{url_for('static', filename='images/plant-swap-navbar.png')}}" alt="Plant Swap"
                         id="plant-swap-logo"></a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
@@ -31,7 +31,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavMobile">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link mr-2" href="{{url_for("home")}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{url_for("index")}}">Home</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Posts</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("add_post")}}">Add Post</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("about")}}">How To Swap</a>
@@ -59,7 +59,7 @@
             </div>
             <div class="d-none d-md-block col-5 offset-md-1" id="footer-links">
                 <h4> Sitemap:</h4>
-                <p><a class="footer-link" href="{{url_for("home")}}">Home</a></p>
+                <p><a class="footer-link" href="{{url_for("index")}}">Home</a></p>
                 <p><a class="footer-link" href="{{url_for("get_posts")}}">Posts</a></p>
                 <p><a class="footer-link" href="{{url_for("add_post")}}">Add Post</a></p>
                 <p><a class="footer-link" href="{{url_for("about")}}">How to Swap</a></p>

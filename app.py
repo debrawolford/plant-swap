@@ -1,27 +1,72 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+import bcrypt
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-
 app.config["MONGO_DBNAME"] = "plant_swap"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # Variables
 mongo = PyMongo(app)
 posts = mongo.db.posts
 countries = mongo.db.countries
+users = mongo.db.users
 
 
 @app.route("/")
-def home():
+def index():
+    if "username" in session:
+        return render_template("account.html")
     return render_template("index.html")
+
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        current_user = users.find_one({"username": request.form["username"].lower()})
+        if current_user:
+            if (
+                bcrypt.hashpw(
+                    request.form["password"].encode("utf-8"), current_user["password"]
+                )
+                == current_user["password"]
+            ):
+                session["username"] = request.form.get("username").lower()
+                return redirect(url_for("index"))
+            else:
+                return render_template("error-login.html")
+        else:
+            return render_template("error-login.html")
+    return render_template("login.html")
+
+
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        existing_user = users.find_one({"username": request.form.get("username")})
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(
+                request.form.get("password").encode("utf-8"), bcrypt.gensalt()
+            )
+            users.insert_one(
+                {
+                    "username": request.form.get("username").lower(),
+                    "email": request.form.get("email"),
+                    "password": hashpass,
+                },
+            )
+            session["username"] = request.form.get("username").lower()
+            return redirect(url_for("index"))
+        else:
+            return render_template("error-register.html")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/about")

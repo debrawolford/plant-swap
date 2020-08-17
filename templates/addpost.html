@@ -30,7 +30,7 @@
                                 aria-describedby="lookingFor" placeholder="e.g. Aloe Vera" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Your Country:</label>
+                            <label for="location">Your Country:</label>
                             <select class="form-control" id="location" name="location" required>
                                 <option value="">Select...</option>
                                 {% for country in countries|sort(attribute='country') %}
