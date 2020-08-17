@@ -79,8 +79,9 @@ def logout():
 
 @app.route("/account")
 def account():
+    number_posts = posts.count_documents({"email": session["email"]})
     return render_template(
-        "account.html", posts=posts.find(), countries=countries.find()
+        "account.html", posts=posts.find(), number_posts=number_posts
     )
 
 
@@ -118,7 +119,7 @@ def submit_post():
             "email": request.form.get("email").lower(),
         },
     )
-    return redirect(url_for("get_posts"))
+    return redirect(url_for("account"))
 
 
 @app.route("/edit_post/<post_id>")

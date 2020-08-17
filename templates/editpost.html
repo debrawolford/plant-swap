@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label for="location">Your Country:</label>
                                 <select class="form-control" id="location" name="location" required>
-                                    <option value="">{{ post.location }}</option>
+                                    <option value="{{ post.location }}">{{ post.location }}</option>
                                     {% for country in countries|sort(attribute='country') %}
                                     <option value="{{country.country}}">{{country.country}}</option>
                                     {% endfor %}

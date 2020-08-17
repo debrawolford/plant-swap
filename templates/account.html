@@ -6,8 +6,18 @@
         <p class="mt-3 col-10 col-md-8 mx-auto text-center error">You are not logged in! Please register/log in <a
                 href="{{url_for("register")}}">here</a>.</p>
     </div>
+    {% endif %}
+    {% if number_posts == 0 %}
+    <div class=" row no-results">
+        <h4 class="mt-5 mx-auto text-center col-8"> You don't have any posts yet. &#128546; You can either create a new
+            post or have a look at the available swaps:</h4>
+        <div class="text-center mt-5 mx-auto col-md-8">
+            <a href=" {{url_for('add_post')}}" class="btn btn-outline-success btn-lg mb-2">Add Post</a>
+            <a href="{{url_for('get_posts')}}" class="btn btn-outline-info text-right btn-lg mb-2">See All Posts</a>
+        </div>
+    </div>
     {% else %}
-    <div class="row">
+    <div class="row mx-auto">
         <h4>{{ session["username"]}}'s Posts</h4>
     </div>
     <div class="row">
@@ -38,7 +48,7 @@
         {% endfor %}
     </div>
     <div class="row">
-        <button type="button" class="btn btn-outline-danger mx-auto" data-toggle="modal"
+        <button type="button" class="btn btn-outline-danger mx-auto mt-5" data-toggle="modal"
             data-target="#deleteConfirmation">Delete Account</button>
     </div>
     {% endif %}
