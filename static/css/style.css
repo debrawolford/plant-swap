@@ -128,14 +128,12 @@ footer a:hover {
 
 @media (min-width: 768px) {
     .jumbotron {
-        margin-top: 200px;
         font-size: 20px;
     }
 }
 
 @media (min-width: 992px) {
     .jumbotron {
-        margin-top: 300px;
         font-size: 30px;
     }
 }
