@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="container main-content">
+    <!-- Start of main image-->
     <div class="row">
         <div class="col-12 mx-auto">
             <img src="{{url_for('static', filename='images/how-to.png')}}" class="img-fluid"
                 alt="How to use Plant Swap">
         </div>
     </div>
+    <!-- End of main image-->
+    <!-- Start of instructions -->
+    <!--Step 1-->
     <div class="row mt-5">
         <div class="col-md-6 my-auto">
             <h4>1. Choose the plant that you would like to swap.</h4>
@@ -19,6 +23,7 @@
             <img src="{{url_for('static', filename='images/step-1.png')}}" class="img-fluid" alt="Woman with plant">
         </div>
     </div>
+    <!--Step 2-->
     <div class="row mt-5">
         <div class=" d-none d-md-block col-md-6">
             <img src="{{url_for('static', filename='images/step-2.png')}}" class="img-fluid" alt="Plant with camera">
@@ -31,6 +36,7 @@
                 click on the image and copy the image address.</p>
         </div>
     </div>
+    <!--Step 3-->
     <div class="row mt-5">
         <div class="col-md-6 my-auto">
             <h4>3. Upload your plant.</h4>
@@ -43,6 +49,7 @@
             <img src="{{url_for('static', filename='images/step-3.png')}}" class="img-fluid" alt="Woman with plant">
         </div>
     </div>
+    <!--Step 4-->
     <div class="row mt-5">
         <div class=" d-none d-md-block col-md-6">
             <img src="{{url_for('static', filename='images/step-4.png')}}" class="img-fluid" alt="Plant with camera">
@@ -53,6 +60,7 @@
                 plants to each other via post or meet up in person if you're nearby, that's completely up to you!</p>
         </div>
     </div>
+    <!-- End of instructions -->
 </main>
 
 {% endblock %}
