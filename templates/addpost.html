@@ -9,17 +9,20 @@
                     href="{{url_for("register")}}" class="error-link">here</a>.</p>
         </div>
         {% else %}
+        <!-- Start of Add Post Form -->
         <div class="row">
             <div class="mt-3 col-10 col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header text-center">New Post</div>
                     <div class="card-body">
                         <form action="{{  url_for('submit_post') }}" method="POST">
+                            <!-- Plant user is offering-->
                             <div class="form-group">
                                 <label for="plant_name">The plant you are offering:</label>
                                 <input type="text" class="form-control" id="plant_name" name="plant_name"
                                     aria-describedby="plantName" placeholder="e.g. Monstera" required>
                             </div>
+                            <!-- Image of plant-->
                             <div class="form-group">
                                 <label for="plant_image">Image of your plant</label>
                                 <input type="text" class="form-control" id="plant_image" name="plant_image"
@@ -32,11 +35,13 @@
                                     "view link" of the uploaded image, right
                                     click on the image and copy the image address and paste here.</small>
                             </div>
+                            <!-- Plant user is looking for-->
                             <div class="form-group">
                                 <label for="looking_for">The plant(s) you are looking for:</label>
                                 <input type="text" class="form-control" id="looking_for" name="looking_for"
                                     aria-describedby="lookingFor" placeholder="e.g. Aloe Vera" required>
                             </div>
+                            <!-- Drop down of all countries-->
                             <div class="form-group">
                                 <label for="location">Your Country:</label>
                                 <select class="form-control" id="location" name="location" required>
@@ -46,18 +51,21 @@
                                     {% endfor %}
                                 </select>
                             </div>
+                            <!-- Readonly input with email-address of user -->
                             <div class="form-group">
                                 <label for="email">Your Email:</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                     aria-describedby="email" placeholder="{{session["email"]}}"
                                     value="{{session["email"]}}" required readonly>
                             </div>
+                            <!-- Readonly input with date of today -->
                             <div class="form-group">
                                 <label for="date_posted">Date Posted:</label>
                                 <input type="date" id="date_posted" name="date_posted" class="form-control"
                                     aria-describedby="date" readonly>
 
                             </div>
+                            <!-- Submit button-->
                             <button type="submit" class="btn btn-outline-success mx-auto">Submit</button>
                         </form>
                     </div>
@@ -65,7 +73,9 @@
             </div>
         </div>
         {% endif %}
+        <!-- End of form-->
     </main>
+    <!-- JS to get today's date for date input -->
     <script>
         document.getElementById("date_posted").valueAsDate = new Date();
     </script>
