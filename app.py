@@ -68,7 +68,7 @@ def logout():
     # Ends session
     session.clear()
     # Redirects to index.html
-    return render_template("index.html")
+    return redirect(url_for("index"))
 
 
 # Register Form: Allows users to create an account
@@ -106,9 +106,9 @@ def register():
 @app.route("/remove_account/<email>", methods=["POST", "GET"])
 def remove_account(email):
     # Searches for posts with user email and deletes from DB
-    posts.remove({"email": session["email"]})
+    posts.delete_one({"email": session["email"]})
     # Searches for users with user email and deletes from DB
-    users.remove({"email": session["email"]})
+    users.delete_one({"email": session["email"]})
     return redirect(url_for("logout"))
 
 
@@ -174,7 +174,7 @@ def edit_post(post_id):
 # Update Post: When user presses submit after updating the form on editpost.html
 @app.route("/update_post/<post_id>", methods=["POST"])
 def update_post(post_id):
-    posts.update(
+    posts.replace_one(
         {"_id": ObjectId(post_id)},
         {
             "plant_name": request.form.get("plant_name"),
@@ -192,7 +192,7 @@ def update_post(post_id):
 @app.route("/remove_post/<post_id>", methods=["POST", "GET"])
 def remove_post(post_id):
     # removes post with the same _id in the DB
-    posts.remove({"_id": ObjectId(post_id)})
+    posts.delete_one({"_id": ObjectId(post_id)})
     return redirect(url_for("account"))
 
 
