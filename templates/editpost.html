@@ -2,23 +2,27 @@
 {% block content %}
 <main class="container main-content">
     <main class="container main-content">
+        <!-- Shows an error message if no user is logged in-->
         {% if "username" not in session %}
         <div class="row">
             <p class="mt-3 col-10 col-md-8 mx-auto text-center error">You are not logged in! Please register/log in <a
                     href="{{url_for("register")}}" class="error-link">here</a>.</p>
         </div>
         {% else %}
+        <!-- Start of Edit Post Form-->
         <div class="row">
             <div class="mt-3 col-10 col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header text-center">Edit Post</div>
                     <div class="card-body">
                         <form action="{{  url_for('update_post', post_id=post._id) }}" method="POST">
+                            <!-- Plant user is offering-->
                             <div class="form-group">
                                 <label for="plant_name">The plant you are offering:</label>
                                 <input type="text" class="form-control" id="plant_name" name="plant_name"
                                     aria-describedby="plantName" value="{{ post.plant_name }}" required>
                             </div>
+                            <!-- Image of plant-->
                             <div class="form-group">
                                 <label for="plant_image">Image of your plant</label>
                                 <input type="text" class="form-control" id="plant_image" name="plant_image"
@@ -30,11 +34,13 @@
                                     "view link" of the uploaded image, right
                                     click on the image and copy the image address and paste here.</small>
                             </div>
+                            <!-- Plant user is looking for-->
                             <div class="form-group">
                                 <label for="looking_for">The plant(s) you are looking for:</label>
                                 <input type="text" class="form-control" id="looking_for" name="looking_for"
                                     aria-describedby="lookingFor" value="{{ post.looking_for }}" required>
                             </div>
+                            <!-- Drop down of all countries-->
                             <div class="form-group">
                                 <label for="location">Your Country:</label>
                                 <select class="form-control" id="location" name="location" required>
@@ -44,16 +50,19 @@
                                     {% endfor %}
                                 </select>
                             </div>
+                            <!-- Readonly input with email-address of user -->
                             <div class="form-group">
                                 <label for="email">Your Email:</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                     aria-describedby="email" value="{{ post.email }}" readonly>
                             </div>
+                            <!-- Readonly input with date of original post -->
                             <div class="form-group">
                                 <label for="date_posted">Date Posted:</label>
                                 <input type="date" id="date_posted" name="date_posted" class="form-control"
                                     aria-describedby="date" value="{{ post.date_posted }}" readonly>
                             </div>
+                            <!-- Submit and Delete buttons -->
                             <button type="submit" class="btn btn-outline-success mx-auto">Submit</button>
                             <button type="button" class="btn btn-outline-danger mx-auto" data-toggle="modal"
                                 data-target="#deleteConfirmation">Delete</button>
@@ -63,8 +72,9 @@
             </div>
         </div>
         {% endif %}
+        <!-- End of Form -->
     </main>
-    <!--Modal-->
+    <!--Modal to confirm that user wants to delete post-->
     <div class="modal" tabindex="-1" role="dialog" id="deleteConfirmation">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -80,6 +90,6 @@
             </div>
         </div>
     </div>
-
+    <!-- End of Modal-->
 
     {% endblock %}
