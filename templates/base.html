@@ -21,6 +21,8 @@
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <!-- Checks if user is logged in. If so, logo links to "get posts" page, if not, logo 
+                links to index page -->
                 {% if session["username"] %}
                 <a class="navbar-brand" href="{{url_for("get_posts")}}"><img
                         src="{{url_for('static', filename='images/plant-swap-navbar.png')}}" alt="Plant Swap"
@@ -37,6 +39,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavMobile">
                     <div class="navbar-nav ml-auto">
+                        <!-- Checks if user is logged in and shows different navbar if not -->
                         {% if session["username"] %}
                         <a class="nav-item nav-link mr-2" href="{{url_for("get_posts")}}">Posts</a>
                         <a class="nav-item nav-link mr-2" href="{{url_for("add_post")}}">Add Post</a>
@@ -72,6 +75,7 @@
             </div>
             <div class="d-none d-md-block col-5 offset-md-1" id="footer-links">
                 <h4> Sitemap:</h4>
+                <!-- Checks if user is logged in and shows different footer if not -->
                 {% if session["username"] %}
                 <p><a class="footer-link" href="{{url_for("get_posts")}}">Posts</a></p>
                 <p><a class="footer-link" href="{{url_for("add_post")}}">Add Post</a></p>
@@ -100,7 +104,6 @@
         </div>
     </footer>
     <!--End of Footer-->
-    <!-- JavaScript -->
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -112,7 +115,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-
+    <!-- Jquery for Date function on Add Post page-->
     <script>
         $(document).ready(function () {
             $('#date').val(new Date().toDateInputValue());
