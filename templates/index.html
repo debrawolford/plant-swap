@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- Start of responsive background image-->
 <main class="container-fluid main-content" id="home-bg">
     <div id="background-image">
         <div class="row">
+            <!-- Start of Jumbotron with Sign in/Learn more buttons-->
             <div class="jumbotron col-6 mx-auto">
 
                 <p class="text-center">Swap your old plants for new ones with others in your area.</p>
@@ -17,7 +19,8 @@
                             href="{{url_for("register")}}">Sign up here</a>.</small>
                 </div>
             </div>
+            <!-- End of Jumbotron-->
         </div>
-
 </main>
+<!-- End of responsive background image -->
 {% endblock %}
