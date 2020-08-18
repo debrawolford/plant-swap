@@ -80,10 +80,13 @@ def logout():
 
 @app.route("/account")
 def account():
-    number_posts = posts.count_documents({"email": session["email"]})
-    return render_template(
-        "account.html", posts=posts.find(), number_posts=number_posts
-    )
+    if "username" in session:
+        number_posts = posts.count_documents({"email": session["email"]})
+        return render_template(
+            "account.html", posts=posts.find(), number_posts=number_posts
+        )
+    else:
+        return redirect(url_for("index"))
 
 
 @app.route("/remove_account/<email>", methods=["POST", "GET"])
