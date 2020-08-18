@@ -66,10 +66,20 @@
             </div>
             <div class="d-none d-md-block col-5 offset-md-1" id="footer-links">
                 <h4> Sitemap:</h4>
-                <p><a class="footer-link" href="{{url_for("index")}}">Home</a></p>
+                {% if session["username"] %}
+                <p><a class="footer-link" href="{{url_for("account")}}">My Account</a></p>
                 <p><a class="footer-link" href="{{url_for("get_posts")}}">Posts</a></p>
                 <p><a class="footer-link" href="{{url_for("add_post")}}">Add Post</a></p>
+                <p><a class="footer-link" href="{{url_for("about")}}">How To Swap</a></p>
+                <p><a class="footer-link" href="{{url_for("logout")}}">Sign Out</a></p>
+
+
+                {% else %}
+                <p><a class="footer-link" href="{{url_for("index")}}">My Account</a></p>
+                <p><a class="footer-link" href="{{url_for("login")}}">Sign In</a></p>
+                <p><a class="footer-link" href="{{url_for("register")}}">Register</a></p>
                 <p><a class="footer-link" href="{{url_for("about")}}">How to Swap</a></p>
+                {% endif %}
             </div>
         </div>
         <div class="row" id="footer-social">
