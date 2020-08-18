@@ -51,7 +51,8 @@ def login():
 def register():
     if request.method == "POST":
         existing_user = users.find_one({"username": request.form.get("username")})
-        if existing_user is None:
+        existing_email = users.find_one({"email": request.form.get("email")})
+        if existing_user is None and existing_email is None:
             hashpass = bcrypt.hashpw(
                 request.form.get("password").encode("utf-8"), bcrypt.gensalt()
             )
