@@ -44,7 +44,8 @@ def login():
         if current_user:
             if (
                 bcrypt.hashpw(
-                    request.form["password"].encode("utf-8"), current_user["password"]
+                    request.form.get("password").encode("utf-8"),
+                    current_user["password"],
                 )
                 == current_user["password"]
             ):
