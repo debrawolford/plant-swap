@@ -144,6 +144,7 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * To allow users to message each other within the website, instead of needing to be forwarded to an external email client.
 * A feature to allow users to simply upload images for their personal system, instead of needing to copy and paste a URL from the web.
 * A section on the Account page which would allow users to edit their details (username, email, password, etc.)
+* Back-end form validation. At the moment the forms are only validated on the front-end which isn't secure.  
 
 [Back to Top](#table-of-contents)
 
@@ -233,7 +234,7 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 [Back to Top](#table-of-contents)
 
 ## Deployment
-*Plant Swap* has been built with the help of Virtual Studio Code, a desktop code editor. It has been committed to Git and Pushed to GitHub using the terminal in Virtual Studio Code. the website is hosted on Heroku.
+*Plant Swap* has been built with the help of Visual Studio Code, a desktop code editor. It has been committed to Git and Pushed to GitHub using the terminal in Visual Studio Code. the website is hosted on Heroku.
 
 ### Cloning
 #### 1. Clone the repository and run locally:
@@ -255,7 +256,7 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 1. Add the following to your env.py file with the applicable variables: 
 ```
 import os
-os.environ["MONGO_URI"] = "Can be found in connect section when viewing your database in MongoDB"
+os.environ["MONGO_URI"] = "mongodb+srv://username:password@myfirstcluster-strtg.mongodb.net/plant_swap?retryWrites=true&w=majority"
 os.environ["IP"] = "0.0.0.0"
 os.environ["PORT"] = "5000"
 os.environ["SECRET_KEY"] = "Your Secret Key"
@@ -266,7 +267,7 @@ os.environ["SECRET_KEY"] = "Your Secret Key"
 1. Add the following Config Vars in the settings tab: 
     * IP : 5000
     * PORT : 0.0.0.0
-    * MONGO_URI : "Can be found in connect section when viewing your database in MongoDB"
+    * MONGO_URI : "mongodb+srv://username:password@myfirstcluster-strtg.mongodb.net/plant_swap?retryWrites=true&w=majority"
     * SECRET_KEY : "Your Secret Key"
 1. Go to the Deploy tab and select GitHub as your Deployment method. 
 1. Follow the instructions to connect to the correct Github repository.
