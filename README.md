@@ -103,6 +103,8 @@ Users are taken to this page as soon as they sign in/register. If they have post
 If the user doesn't have any posts yet, a message will appear giving them the option to view posts made by other people, or to add a post.
 
 #### Add Post Form
+CRUD - *Add* a New Post
+
 A simple form in the same style as all other forms on the website. when a user is logged in they can use this form to post a new plant. The following details need to be filled in on this form: 
 
 * Plant Name
@@ -115,6 +117,8 @@ A simple form in the same style as all other forms on the website. when a user i
 When the Submit button is pressed the post is sent to the Mongo database and will show up on both the Account page and the Posts page.
 
 #### Edit Post Form
+CRUD - *Update* and *Delete* a Post
+
 Very similar to the Add Post Form. The only difference is that the existing values for the selected post are populated when the page loads, and users can simply change the values that they want to adjust.
 
 When the submit button is pressed the updated information gets sent to the database for that post.
@@ -122,6 +126,8 @@ When the submit button is pressed the updated information gets sent to the datab
 There is also a delete button at the bottom of the form. When this is selected the user should see a pop-up confirming that they want to delete the post. If they confirm the post is removed from the database.
 
 #### Posts Page
+CRUD - *Read* (view) all posts
+
 This page shows all the posts made on the website.
 
 There is an option under each post to contact the person who created the post. This will forward the user to their email client and allow them to get in touch with each other and organize the plant swap. 
@@ -132,6 +138,10 @@ There is also a filter at the top of the page. This makes it possible to filter 
 This is a static page which gives instructions on how to use *Plant Swap*. It is available to both new visitors and registered users. The images for each step only appear on medium screens and larger, giving mobile a simple and clean look.
 
 ### Hopeful Future Features
+
+* To allow users to message each other within the website, instead of needing to be forwarded to an external email client.
+* A feature to allow users to simply upload images for their personal system, instead of needing to copy and paste a URL from the web.
+* A section on the Account page which would allow users to edit their details (username, email, password, etc.)
 
 ## Technologies Used
 
