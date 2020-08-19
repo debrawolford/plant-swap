@@ -194,9 +194,9 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 
 ### Manual Testing
 
-✔️ Navigation links: All redirect to the correct pages
+✔️ Navigation links: All redirect to the correct pages.
 
-✔️ Footer links: All redirect to the correct pages
+✔️ Footer links: All redirect to the correct pages.
 
 ✔️ Social links: All open a new tab with the correct social media website.
 
