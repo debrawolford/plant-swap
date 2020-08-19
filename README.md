@@ -1,4 +1,4 @@
-![Image of logo](static\images\plant-swap-readme.png)
+![Image of logo](static/images/plant-swap-readme.png)
 # *Plant Swap* - Third Milestone Project for Code Institute 
 *Plant Swap* was created for plant enthusiasts around the world who are looking to adopt new plants while making sure their unwanted plants go to a good home. 
 
@@ -52,7 +52,7 @@ Flask was used for this project in order to make an interactive website that sen
 A traditional navigation bar was implemented at the top of each page with the common "Tree Structure". This bar changes depending on whether a user is current logged in. If so, it includes links to the Posts, My Account, Add Post, and How To Swap pages. If not, it includes links to the Home, Log In, Register, and How To Swap pages.
 
 **Color Scheme**: The background of the website, footer and navigation bar are all white. This allowed the focus to be on the content of the pages. Dark gray was used for all of the font on the website. Buttons and links were done in two different shades of green, as green is usually the color associated with plants. The only other color used was red for errors and delete buttons. Red was chosen because it stands out from the rests and alerts users about the error or that they are about to delete something.  
-![Image of Colors](static\images\color-scheme.png)
+![Image of Colors](static/images/color-scheme.png)
 
 **Typography**: [Questrial](https://fonts.google.com/specimen/Questrial?sidebar.open=true&selection.family=Questrial) was used for the entire website. 
 
