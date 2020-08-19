@@ -181,3 +181,14 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 ## Deployment
 
 ## Credits
+### Content
+I initially followed the tutorial by [Pretty Printed](https://www.youtube.com/watch?v=vVx1737auSE&t=6s) to create the Log In/Registration system. It was later adapted to suit my project.
+
+In order to import a list of countries into MongoDB I followed the steps created by @Albert-Gao on [Github](https://github.com/Albert-Gao/world-cities-mongodb).
+
+### Media
+All the images (other than the logo) on this website were taken from [Pixabay](https://www.pixabay.com/) and [Unsplash](https://unsplash.com/), websites that offers free stock images.
+
+## Acknowledgements
+
+Thanks to my mentor, Dick Vlaanderen for all of the guidance and for challenging me to improve my project with additional features.
