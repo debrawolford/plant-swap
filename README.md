@@ -192,6 +192,44 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 * CSS: [ W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found.
 * Python: [PEP8 Online] was used to validate. There were some errors about the lines with my comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
 
+### Manual Testing
+
+✔️ Navigation links: All redirect to the correct pages
+
+✔️ Footer links: All redirect to the correct pages
+
+✔️ Social links: All open a new tab with the correct social media website.
+
+✔️ Misc. links on website: All other links are working correctly.
+
+✔️ Try loading pages that are not meant to load when not logged in (such as account, add_post or get_posts): An error message appears asking user to log in/register.
+
+✔️ Registration if user/email already exists in database: An error message appears.
+
+✔️ Registration if no user/email exists in database: Successfully sent user data to MongoDB and redirected user to their Account page. This only works when all fields are filled in correctly, otherwise an error message appears.
+
+✔️ Log in if no username exists in database that matches entered username: Error message appears and asks user to try again.
+
+✔️ Log in if username is correct but password doesn't match: Error message appears and asks user to try again.
+
+✔️ Log in with correct username and password: Starts session and takes user to their Account page. This only works when all fields are filled in correctly, otherwise an error message appears.
+
+✔️ Press the log out button when signed in: Ends the session and sends user back to homepage. 
+
+✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try editing a post on the Account page: Successfully updates post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try deleting a post while on the Edit Form: Successfully removes the post from the website.
+
+✔️ Filter posts on posts.html by country with no posts: Get a message that no posts are available in the area with the option to go back to all posts or to add a new post. 
+
+✔️ Filter posts on posts.html by a country that is used in some posts: The matching posts appear and all posts from other countries disappear. 
+
+✔️ Press the delete account button on the Account Page: Get a pop up message asking to confirm. When confirmed both the account and the posts made by the account get deleted from the database.
+
+✔️ Try logging in with the credentials from the deleted account: Get an error message. 
+
 [Back to Top](#table-of-contents)
 
 ## Deployment
