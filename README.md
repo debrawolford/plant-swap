@@ -62,6 +62,8 @@ A traditional navigation bar was implemented at the top of each page with the co
 [Click here](wireframes) to see all wireframes for this project. 
 
 *Please note that the wireframes show the initial design ideas for the website and therefore may not match the current version.*
+
+[Back to Top](#table-of-contents)
 ## Features
 
 ### Existing Features
@@ -143,6 +145,8 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * A feature to allow users to simply upload images for their personal system, instead of needing to copy and paste a URL from the web.
 * A section on the Account page which would allow users to edit their details (username, email, password, etc.)
 
+[Back to Top](#table-of-contents)
+
 ## Technologies Used
 
 ### Languages
@@ -176,19 +180,69 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 ### Databases:
 * [MongoDB](https://www.mongodb.com/cloud/atlas) : Used to store users and posts
 
+[Back to Top](#table-of-contents)
+
 ## Testing
 
+[Back to Top](#table-of-contents)
+
 ## Deployment
+*Plant Swap* has been built with the help of Virtual Studio Code, a desktop code editor. It has been committed to Git and Pushed to GitHub using the terminal in Virtual Studio Code. the website is hosted on Heroku.
+
+### Cloning
+#### 1. Clone the repository and run locally:
+
+1. Navigate to the repository from the Github Dashboard
+1. Select the green button in the top right of the screen that says "Clone or download"
+1. Click on the clipboard icon to the right of the URL to copy it
+1. Open an Integrated Development Environment (IDE) and head over to the terminal
+1. Change the directory to where you want to clone the repository to
+1. Execute the following command by pasting in the URL you copied in step 3: git clone https://github.com/debrawolford/treat-your-pup.git
+1. Press Enter
+1. The site will then be cloned
+1. Install all the project dependencies by typing `pip install -r requirements.txt`
+
+#### Set Up Environment Variables:
+
+1. Create an env.py file in your root directory.
+1. Add env.py file to the.gitignore file.
+1. Add the following to your env.py file: 
+```
+import os
+os.environ["MONGO_URI"] = "Can be found in connect section when viewing your database in MongoDB"
+os.environ["IP"] = "0.0.0.0"
+os.environ["PORT"] = "5000"
+os.environ["SECRET_KEY"] = "Your Secret Key"
+```
+
+### Deploying on Heroku
+1. Go to your Dashboard in [Heroku](https://heroku.com/) and select New -> Create New App.
+1. Add the following Config Vars in the settings tab: 
+    * IP : 5000
+    * PORT : 0.0.0.0
+    * MONGO_URI : "Can be found in connect section when viewing your database in MongoDB"
+    * SECRET_KEY : "Your Secret Key"
+1. Go to the Deploy tab and select GitHub as your Deployment method. 
+1. Follow the instructions to connect to the correct Github repository.
+1. Enable Automatic Deploys. This will deploy the website each time the master branch is updated.
+1. If you prefer to deploy manually, head to the Manual Deployment section, choose the master branch, and select Deploy. 
+1. Your website should now be live.
+
+[Back to Top](#table-of-contents)
 
 ## Credits
 ### Content
 I initially followed the tutorial by [Pretty Printed](https://www.youtube.com/watch?v=vVx1737auSE&t=6s) to create the Log In/Registration system. It was later adapted to suit my project.
 
-In order to import a list of countries into MongoDB I followed the steps created by @Albert-Gao on [Github](https://github.com/Albert-Gao/world-cities-mongodb).
+In order to import a list of countries into MongoDB I followed the steps created by Albert-Gao on [Github](https://github.com/Albert-Gao/world-cities-mongodb).
 
 ### Media
 All the images (other than the logo) on this website were taken from [Pixabay](https://www.pixabay.com/) and [Unsplash](https://unsplash.com/), websites that offers free stock images.
 
+[Back to Top](#table-of-contents)
+
 ## Acknowledgements
 
 Thanks to my mentor, Dick Vlaanderen for all of the guidance and for challenging me to improve my project with additional features.
+
+[Back to Top](#table-of-contents)
