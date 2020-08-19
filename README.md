@@ -51,7 +51,7 @@ Flask was used for this project in order to make an interactive website that sen
 
 A traditional navigation bar was implemented at the top of each page with the common "Tree Structure". This bar changes depending on whether a user is current logged in. If so, it includes links to the Posts, My Account, Add Post, and How To Swap pages. If not, it includes links to the Home, Log In, Register, and How To Swap pages.
 
-**Color Scheme**: The background of the website, footer and navigation bar are all white. This allowed the focus to be on the content of the pages. Dark gray was used for all of the font on the website. Buttons and links were done in two different shades of green, as green is usually the color associated with plants. The only other color used was red for errors and delete buttons. Red was chosen because it stands out from the rests and alerts users about the error or that they are about to delete something.  
+**Color Scheme**: The background of the website, footer and navigation bar are all white. This allowed the focus to be on the content of the pages. Dark gray was used for all of the font on the website. Buttons and links were done in two different shades of green, as green is usually the color associated with plants. The only other color used was red for errors and delete buttons. Red was chosen because it stands out from the rests and alerts users about the error or that they are about to delete something important.  
 ![Image of Colors](static/images/color-scheme.png)
 
 **Typography**: [Questrial](https://fonts.google.com/specimen/Questrial?sidebar.open=true&selection.family=Questrial) was used for the entire website. 
@@ -65,6 +65,37 @@ A traditional navigation bar was implemented at the top of each page with the co
 ## Features
 
 ## Technologies Used
+
+### Languages: 
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://www.javascript.com/)
+* [Python](https://www.python.org/) 
+* [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/)
+
+### Libraries/Frameworks: 
+* [Bootstrap](https://www.getbootstrap.com/) : Used for initial styling and in order to create a uniform website that renders well on all screen sizes. Also used for some basic Javascript additions.
+* [Google Fonts](https://fonts.google.com/) : Used for the font on the website.
+* [Font Awesome](https://fontawesome.com/) : Social Media icons on the website come from Font Awesome.
+* [Flask](https://palletsprojects.com/p/flask/) : Used as the main framework for the project.
+* [Bcrypt](https://pythonise.com/categories/python/python-password-hashing-bcrypt): Used to hash entered passwords. 
+
+### Tools:
+* [Visual Studio Code](https://code.visualstudio.com/) : The code editor used for this project.
+* [Git](https://git-scm.com/) : Installed on VS Code to allow version control.
+* [Balsamiq Mockups](https://balsamiq.com/) : Used to create the wireframes during the UX Design process.
+* Chrome Developer Tools: Used to test the website while developing.
+* [W3C Markup Validation Jigsaw](https://jigsaw.w3.org/css-validator/) : To validate the CSS code.
+* [W3C Markup Validation](https://validator.w3.org/) : To validate the HTML code.
+* [Pixabay](https://www.pixabay.com/) : Free online images. Used for some images on website.
+* [Unsplash](https://unsplash.com/) : Free online images. Used for some images on website.
+* Github: Used to host the repositories for this project.
+* [Canva](https://www.canva.com/) : Used to resize images and create logo.
+* [Heroku](https://heroku.com/) : Used to host the website.
+* [PyMongo](https://pymongo.readthedocs.io/en/stable/) : Used in order to allow the website to communicate with the MongoDB database. 
+
+### Databases:
+* [MongoDB](https://www.mongodb.com/cloud/atlas) : Used to store users and posts
 
 ## Testing
 
