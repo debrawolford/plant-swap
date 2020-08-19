@@ -183,6 +183,14 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 [Back to Top](#table-of-contents)
 
 ## Testing
+Chrome Developer Tools was used the entirety of my project to test out how the website rendered on different viewports/devices. By using the device selector I went through each screen size to confirm that everything looked correct each time I changed anything. 
+
+The website has been tested on Google Chrome and Safari for mobile and web and on Internet Explorer for web. Depending on the screen size the Jumbotron on the Landing Page can be a little too far down the page or too far up. I tried changing the margins, and adding the my-auto class, but neither of these resolved the issue. Internet Explorer currently also has some styling issues.  
+
+### Validation Testing
+* HTML: [W3C Markup Validation Service](https://validator.w3.org/) was used to validate. There were many errors due the program not accepting Jinja.
+* CSS: [ W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found.
+* Python: [PEP8 Online] was used to validate. There were some errors about the lines with my comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
 
 [Back to Top](#table-of-contents)
 
@@ -206,7 +214,7 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 
 1. Create an env.py file in your root directory.
 1. Add env.py file to the.gitignore file.
-1. Add the following to your env.py file: 
+1. Add the following to your env.py file with the applicable variables: 
 ```
 import os
 os.environ["MONGO_URI"] = "Can be found in connect section when viewing your database in MongoDB"

@@ -20,6 +20,7 @@ posts = mongo.db.posts
 countries = mongo.db.countries
 users = mongo.db.users
 
+
 # Start of routes
 # Landing Page
 @app.route("/")
