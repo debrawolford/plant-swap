@@ -3,7 +3,11 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 1. [UX Design](#ux-design)
-    * [Wireframes](#wireframes)
+    * [User Stories](#user-stories)
+    * [Strategy](#strategy)
+    * [Scope](#scope)
+    * [Structure](#structure)
+    * [Skeleton](#skeleton)
 1. [Features](#features)
 1. [Technologies Used](#technologies-used)
 1. [Testing](#testing)
@@ -32,8 +36,11 @@ A live preview of the site can be found here: [Plant Swap](https://plant-swap-ci
 * I want the ability to log out of my account.
 * I want the ability to delete my account and posts.
 
-
-### Wireframes 
+### Strategy
+### Scope
+### Structure
+### Skeleton 
+[Click here](wireframes) to see all wireframes for this project. 
 
 ## Features
 
