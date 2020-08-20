@@ -68,10 +68,10 @@ def login():
                 return redirect(url_for("index"))
             # If the passwords don't match
             else:
-                return render_template("error-login.html")
+                return render_template("errorlogin.html")
         # If the username does not exist
         else:
-            return render_template("error-login.html")
+            return render_template("errorlogin.html")
     return render_template("login.html")
 
 
@@ -117,7 +117,7 @@ def register():
             session["email"] = request.form.get("email").lower()
             return redirect(url_for("index"))
         else:
-            return render_template("error-register.html")
+            return render_template("errorregister.html")
     else:
         return render_template("register.html")
 
