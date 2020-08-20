@@ -47,32 +47,35 @@ def login():
     Returns:
         Returns redirect to index or error (str)
     """
-    if request.method == "POST":
-        # Searches MongoDB users database for user
-        current_user = users.find_one(
-            {"username": request.form.get("username").lower()}
-        )
-        # If the username exists, the filled in hashed
-        # password gets compared to the password in the DB
-        if current_user:
-            if (
-                bcrypt.hashpw(
-                    request.form.get("password").encode("utf-8"),
-                    current_user["password"],
-                )
-                == current_user["password"]
-            ):
-                # If passwords match
-                session["username"] = request.form.get("username").lower()
-                session["email"] = current_user["email"]
-                return redirect(url_for("index"))
-            # If the passwords don't match
+    if "username" in session:
+        return redirect(url_for("account"))
+    else:
+        if request.method == "POST":
+            # Searches MongoDB users database for user
+            current_user = users.find_one(
+                {"username": request.form.get("username").lower()}
+            )
+            # If the username exists, the filled in hashed
+            # password gets compared to the password in the DB
+            if current_user:
+                if (
+                    bcrypt.hashpw(
+                        request.form.get("password").encode("utf-8"),
+                        current_user["password"],
+                    )
+                    == current_user["password"]
+                ):
+                    # If passwords match
+                    session["username"] = request.form.get("username").lower()
+                    session["email"] = current_user["email"]
+                    return redirect(url_for("index"))
+                # If the passwords don't match
+                else:
+                    return render_template("errorlogin.html")
+            # If the username does not exist
             else:
                 return render_template("errorlogin.html")
-        # If the username does not exist
-        else:
-            return render_template("errorlogin.html")
-    return render_template("login.html")
+        return render_template("login.html")
 
 
 @app.route("/logout")
@@ -97,29 +100,32 @@ def register():
     Returns:
         Returns redirect to index or error (str)
     """
-    if request.method == "POST":
-        # Checks MongoDB to ensure username and email haven't been used before
-        existing_user = users.find_one({"username": request.form.get("username")})
-        existing_email = users.find_one({"email": request.form.get("email")})
-        if existing_user is None and existing_email is None:
-            # Hashes entered pw and stores in variable
-            hashpass = bcrypt.hashpw(
-                request.form.get("password").encode("utf-8"), bcrypt.gensalt()
-            )
-            users.insert_one(
-                {
-                    "username": request.form.get("username").lower(),
-                    "email": request.form.get("email").lower(),
-                    "password": hashpass,
-                },
-            )
-            session["username"] = request.form.get("username").lower()
-            session["email"] = request.form.get("email").lower()
-            return redirect(url_for("index"))
-        else:
-            return render_template("errorregister.html")
+    if "username" in session:
+        return redirect(url_for("account"))
     else:
-        return render_template("register.html")
+        if request.method == "POST":
+            # Checks MongoDB to ensure username and email haven't been used before
+            existing_user = users.find_one({"username": request.form.get("username")})
+            existing_email = users.find_one({"email": request.form.get("email")})
+            if existing_user is None and existing_email is None:
+                # Hashes entered pw and stores in variable
+                hashpass = bcrypt.hashpw(
+                    request.form.get("password").encode("utf-8"), bcrypt.gensalt()
+                )
+                users.insert_one(
+                    {
+                        "username": request.form.get("username").lower(),
+                        "email": request.form.get("email").lower(),
+                        "password": hashpass,
+                    },
+                )
+                session["username"] = request.form.get("username").lower()
+                session["email"] = request.form.get("email").lower()
+                return redirect(url_for("index"))
+            else:
+                return render_template("errorregister.html")
+        else:
+            return render_template("register.html")
 
 
 @app.route("/remove_account/<email>", methods=["POST", "GET"])
