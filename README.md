@@ -189,6 +189,8 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * Back-end form validation. At the moment the forms are only validated on the front-end which isn't secure.  
 * A "Confirm Password" field when registering a new account, at the moment new visitors only need to fill their password in once. 
 * A way to soft delete users and posts, so that they are removed from the front-end but remain in the database as inactive.
+* A "Forgot Password" page where users can reset their passwords. 
+* A "Support" form, in case users require any assistance. 
 
 [Back to Top](#table-of-contents)
 
