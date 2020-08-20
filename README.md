@@ -49,7 +49,7 @@ The users need the following from the website:
 ### Structure
 Flask was used for this project in order to make an interactive website that sends users to different links/pages depending on their input.
 
-A traditional navigation bar was implemented at the top of each page with the common "Tree Structure". This bar changes depending on whether a user is current logged in. If so, it includes links to the Posts, My Account, Add Post, and How To Swap pages. If not, it includes links to the Home, Log In, Register, and How To Swap pages.
+A traditional navigation bar was implemented at the top of each page with the common "Tree Structure". This bar changes depending on whether a user is currently logged in. If so, it includes links to the Posts, My Account, Add Post, Log Out and How To Swap pages. If not, it includes links to the Home, Log In, Register, and How To Swap pages.
 
 **Color Scheme**: The background of the website, footer and navigation bar are all white. This allowed the focus to be on the content of the pages. Dark gray was used for all of the font on the website. Buttons and links were done in two different shades of green, as green is usually the color associated with plants. The only other color used was red for errors and delete buttons. Red was chosen because it stands out from the rests and alerts users about the error or that they are about to delete something important.  
 ![Image of Colors](static/images/color-scheme.png)
@@ -85,7 +85,7 @@ The links in the footer give the same feedback as in the header when hovered ove
 #### Landing Page
 A clean and minimal landing page that the users see when they visit the website. This allows users to either log in, register, or find out more about *Plant Swap*.
 
-Both the Sign In and Lear More buttons change from a transparent background to a dark green background when being hovered over.
+Both the Sign In and Learn More buttons change from a transparent background to a dark green background when being hovered over.
 
 On mobile, the Learn More button disappears, in order to save screen space.
 
@@ -99,7 +99,7 @@ This form allows existing users to log in using their username and password. An 
 
 There is an option at the bottom of the form to go to the registration form if they don't have an account yet.
 
-#### Account Page
+#### My Account Page
 Users are taken to this page as soon as they sign in/register. If they have posted in the past this page will show all of their posts and give them the option to edit/delete posts. There is also an option to delete the account, which will delete all the posts made by the user as well. 
 
 If the user doesn't have any posts yet, a message will appear giving them the option to view posts made by other people, or to add a post.
@@ -109,14 +109,14 @@ CRUD - *Add* a New Post
 
 A simple form in the same style as all other forms on the website. when a user is logged in they can use this form to post a new plant. The following details need to be filled in on this form: 
 
-* Plant Name
+* Plant name
 * Image url of plant
 * The plant the user is looking for
 * Country 
 * Email (readonly which is filled automatically with the session email)
 * Date Posted (readonly which is filled automatically with today's date)
 
-When the Submit button is pressed the post is sent to the Mongo database and will show up on both the Account page and the Posts page.
+When the Submit button is pressed the post is sent to the Mongo database and will show up on both the My Account page and the Posts page.
 
 #### Edit Post Form
 CRUD - *Update* and *Delete* a Post
@@ -142,10 +142,10 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 ### Hopeful Future Features
 
 * To allow users to message each other within the website, instead of needing to be forwarded to an external email client.
-* A feature to allow users to simply upload images for their personal system, instead of needing to copy and paste a URL from the web.
-* A section on the Account page which would allow users to edit their details (username, email, password, etc.)
+* A feature to allow users to simply upload images from their personal device, instead of needing to copy and paste a URL from the web.
+* A section on the My Account page which would allow users to edit their details (username, email, password, etc.)
 * Back-end form validation. At the moment the forms are only validated on the front-end which isn't secure.  
-* A confirm password field when registering a new account, at the moment new visitors only need to fill their password in once. 
+* A "Confirm Password" field when registering a new account, at the moment new visitors only need to fill their password in once. 
 
 [Back to Top](#table-of-contents)
 
@@ -161,7 +161,7 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 ### Libraries/Frameworks 
 * [Bootstrap](https://www.getbootstrap.com/) : Used for initial styling and in order to create a uniform website that renders well on all screen sizes. Also used for some basic Javascript additions.
 * [Google Fonts](https://fonts.google.com/) : Used for the font on the website.
-* [Font Awesome](https://fontawesome.com/) : Social Media icons on the website come from Font Awesome.
+* [Font Awesome](https://fontawesome.com/) : Used for social media icons.
 * [Flask](https://palletsprojects.com/p/flask/) : Used as the main framework for the project.
 * [Bcrypt](https://pythonise.com/categories/python/python-password-hashing-bcrypt) : Used to hash entered passwords. 
 
@@ -180,14 +180,14 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * [PyMongo](https://pymongo.readthedocs.io/en/stable/) : Used in order to allow the website to communicate with the MongoDB database. 
 
 ### Databases:
-* [MongoDB](https://www.mongodb.com/cloud/atlas) : Used to store users and posts
+* [MongoDB](https://www.mongodb.com/cloud/atlas) : Used to store users and posts.
 
 [Back to Top](#table-of-contents)
 
 ## Testing
 Chrome Developer Tools was used the entirety of my project to test out how the website rendered on different viewports/devices. By using the device selector I went through each screen size to confirm that everything looked correct each time I changed anything. 
 
-The website has been tested on Google Chrome and Safari for mobile and web and on Internet Explorer for web. Depending on the screen size the Jumbotron on the Landing Page can be a little too far down the page or too far up. I tried changing the margins, and adding the my-auto class, but neither of these resolved the issue. Internet Explorer currently also has some styling issues.  
+The website has been tested on Google Chrome, and Safari for mobile and web and on Microsoft Edge and Internet Explorer for web. Depending on the screen size the Jumbotron on the Landing Page can be a little too far down the page or too far up. I tried changing the margins, and adding the my-auto Bootstrap class, but neither of these resolved the issue. Internet Explorer currently also has some styling issues, but seeing as Microsoft Edge is officially replacing IE I decided this wasn't an urgent issue. 
 
 [Am I Responsive](http://ami.responsivedesign.is/) was used throughout the process to ensure that the website rendered well on different screen sizes.
 
@@ -244,7 +244,7 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
     1. Change whichever fields you want on the "Edit Post".
     1. Press "Submit". 
 * I want the ability to delete my own posts.
-    1. Head to the "Edit Post" section following the steps above.
+    1. Head to the "Edit Post" section using the steps above.
     1. Press the "Delete" button at the bottom of the page.
     1. A modal will pop up asking you to confirm.
     1. Press the "Delete" button to confirm.  
@@ -266,7 +266,7 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 
 ✔️ Misc. links on website: All other links are working correctly.
 
-✔️ Try loading Account page when not logged in: Get redirected to index.html.
+✔️ Try loading My Account page when not logged in: Get redirected to index.html.
 
 ✔️ Try loading Posts page when not logged in: An error message appears asking user to log in/register.
 
@@ -276,7 +276,7 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 
 ✔️ Submit registration form with one of the fields not filled in: An error message appears asking user to fill in the field.
 
-✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to MongoDB and redirects user to their Account page. 
+✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to MongoDB and redirects user to their My Account page. 
 
 ✔️ Submit Log In form if no username exists in database that matches entered username: Error message appears and asks user to try again.
 
@@ -284,21 +284,21 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 
 ✔️ Submit Log In form with one of the fields not filled in: An error message appears asking user to fill in the field.
 
-✔️ Submit log in form with correct username and password: Starts session and takes user to their Account page. 
+✔️ Submit log in form with correct username and password: Starts session and takes user to their My Account page. 
 
 ✔️ Press the Sign Out button when logged in: Ends the session and sends user back to index.html. 
 
-✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their My Account page only if all the fields are filled in correctly. If not, an error message appears.
 
-✔️ Try editing a post on the Account page: Successfully updates post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+✔️ Try editing a post on the My Account page: Successfully updates post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
 
-✔️ Try deleting a post while on the Edit Post form: A modal pops up asking for confirmation. When confirmed, it successfully removes the post from the website and redirects to the Account page. 
+✔️ Try deleting a post while on the Edit Post form: A modal pops up asking for confirmation. When confirmed, it successfully removes the post from the website and redirects to the My Account page. 
 
 ✔️ Filter posts on posts.html by country that has no posts: Get a message that no posts are available in the area with the option to go back to all posts or to add a new post. 
 
 ✔️ Filter posts on posts.html by a country that has at least one available post: The matching posts appear and all posts from other countries disappear. 
 
-✔️ Press the delete account button on the Account Page: Get a pop up message asking to confirm. When confirmed both the account and the posts made by the account get deleted from the database.
+✔️ Press the delete account button on the My Account Page: Get a pop up message asking to confirm. When confirmed both the account and the posts made by the account get deleted from the database.
 
 ✔️ Try logging in with the credentials from the deleted account: Get an error message. 
 
