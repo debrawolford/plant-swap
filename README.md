@@ -294,6 +294,10 @@ The website has been tested on Google Chrome, and Safari for mobile and web and 
 
 ✔️ Try deleting a post while on the Edit Post form: A modal pops up asking for confirmation. When confirmed, it successfully removes the post from the website and redirects to the My Account page. 
 
+✔️ Try navigating to Log In page when already logged in: Get redirected to My Account page.
+
+✔️ Try navigating to Register page when already logged in: Get redirected to My Account page.
+
 ✔️ Filter posts on posts.html by country that has no posts: Get a message that no posts are available in the area with the option to go back to all posts or to add a new post. 
 
 ✔️ Filter posts on posts.html by a country that has at least one available post: The matching posts appear and all posts from other countries disappear. 
