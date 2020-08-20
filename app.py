@@ -31,7 +31,7 @@ def index():
     Args:
         none
     Returns:
-        Returns redirect to account or index.html (str)
+        (str) Redirects to account route or renders "index.html" template
     """
     if "username" in session:
         return redirect(url_for("account"))
@@ -45,7 +45,7 @@ def login():
     Args:
         none
     Returns:
-        Returns redirect to index or error (str)
+        (str) Redirects to index route or renders "errorlogin.html" template
     """
     if "username" in session:
         return redirect(url_for("account"))
@@ -85,7 +85,7 @@ def logout():
     Args:
         none
     Returns:
-        Returns redirect to index (str)
+        (str) Redirects to index route
     """
     session.clear()
     return redirect(url_for("index"))
@@ -98,7 +98,7 @@ def register():
     Args:
         none
     Returns:
-        Returns redirect to index or error (str)
+        (str) Redirects to index route  or renders "errorregister.html" template
     """
     if "username" in session:
         return redirect(url_for("account"))
@@ -133,9 +133,9 @@ def remove_account(email):
     """
     Deletes account when button is pressed
     Args:
-        email (str)
+        (str) email
     Returns:
-        Returns redirect to logout (str)
+        (str) Redirects to logout route
     """
     # Searches for posts with user email and deletes from DB
     posts.delete_one({"email": session["email"]})
@@ -151,7 +151,7 @@ def account():
     Args:
         none
     Returns:
-        Returns redirect to account or index (str)
+        (str) Renders "account.html" template or redirects to index route
     """
     if "username" in session:
         # Counts the number of posts on page
@@ -170,7 +170,7 @@ def about():
     Args:
         none
     Returns:
-        Returns about.html (str)
+        (str) Renders "about.html" template
     """
     return render_template("about.html",)
 
@@ -182,7 +182,7 @@ def get_posts():
     Args:
         none
     Returns:
-        Returns posts.html (str)
+        (str) Renders "posts.html" template
     """
     return render_template("posts.html", posts=posts.find(), countries=countries.find())
 
@@ -194,7 +194,7 @@ def add_post():
     Args:
         none
     Returns:
-        Returns addpost.html (str)
+        (str) Renders "addpost.html" template
     """
     return render_template("addpost.html", countries=countries.find())
 
@@ -206,7 +206,7 @@ def submit_post():
     Args:
         none
     Returns:
-        Returns redirect to account (str)
+        (str) Redirects to "account" route
     """
     # Gets all of the data from the form and creates new post in mongoDB
     posts.insert_one(
@@ -227,9 +227,9 @@ def edit_post(post_id):
     """
     Loads Edit Post Page
     Args:
-        post_id (str)
+        (str) post_id
     Returns:
-        Returns editpost.html (str)
+        (str) Renders "editpost.html" template
     """
     # Searches for post in DB with the same id
     the_post = posts.find_one({"_id": ObjectId(post_id)})
@@ -241,9 +241,9 @@ def update_post(post_id):
     """
     Updates post
     Args:
-        post_id (str)
+        (str) post_id
     Returns:
-        Returns redirect to account (str)
+        (str) Redirects to "account" route
     """
     posts.replace_one(
         {"_id": ObjectId(post_id)},
@@ -264,9 +264,9 @@ def remove_post(post_id):
     """
     Deletes post when confirmed
     Args:
-        post_id (str)
+        (str) post_id
     Returns:
-        Returns redirect to account (str)
+        (str) Redirects to "account" route
     """
     # removes post with the same _id in the DB
     posts.delete_one({"_id": ObjectId(post_id)})
@@ -280,7 +280,7 @@ def filter_posts():
     Args:
         none
     Returns:
-        Returns posts.html (str)
+        (str) Renders "posts.html" template
     """
     # Gets the selected country from the form
     filter_results = posts.find({"location": request.form.get("location")})
