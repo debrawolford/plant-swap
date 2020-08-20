@@ -223,6 +223,7 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * [Canva](https://www.canva.com/) : Used to resize images and create logo.
 * [Heroku](https://heroku.com/) : Used to host the website.
 * [PyMongo](https://pymongo.readthedocs.io/en/stable/) : Used in order to allow the website to communicate with the MongoDB database. 
+* [TinyPNG](https://tinypng.com/) : Used to resize images so website would load faster.
 
 ### Databases:
 * [MongoDB](https://www.mongodb.com/cloud/atlas) : Used to store users and posts.
