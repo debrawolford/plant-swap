@@ -196,7 +196,65 @@ The website has been tested on Google Chrome and Safari for mobile and web and o
 ### Validation Testing
 * HTML: [W3C Markup Validation Service](https://validator.w3.org/) was used to validate. There were many errors due the program not accepting Jinja.
 * CSS: [ W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found.
-* Python: [PEP8 Online](http://pep8online.com/) was used to validate. There were some errors about the lines with my comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
+* Python: [PEP8 Online](http://pep8online.com/) was used to validate. There were some errors about the lines with comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
+
+### Testing User Stories
+
+* I want the ability to quickly learn about what the website offers.
+    1. Head to the Homepage of the website.
+    1. Press the "Learn More" button or the "How to Swap" navbar link.
+    1. Read the steps that need to be taken in order to swap. 
+* I want the ability to create an account so I can view posts and create my own posts.
+    1. Head to the Homepage of the website.
+    1. Select either the "Sign up here" link or the "Register" navbar link.
+    1. Fill in the form on the "Create An Account" page.
+    1. Press the "Register" button.
+* I want the ability to log in to my account.
+    1. Head to the Homepage of the website.
+    1. Press either the "Sign In" button or the "Sign In" link on the navbar.
+    1. Fill in the username and password on the "Sign In" form.
+    1. Press the "Sign In" button.
+    1. If password and username are correct the user will be taken to their "My Account" page. 
+* I want the ability to see all available posts.
+    1. Sign in or register using the above steps.
+    1. On your "My Account" page, select the "Posts" link on the navbar or footer. 
+    1. View all posts.
+* I want the ability to contact someone about their post.
+    1. Head to the "Posts" page using the steps above. 
+    1. Press the "Get in Touch" button under the post you are interested in. 
+    1. Your mail client will open up with the "To:" field filled in.
+    1. Send your email as you usually would. 
+* I want the ability to filter all posts on location.
+    1. Head to the "Posts" page using the steps above.
+    1. At the top of the page, use the dropdown menu to find your country. 
+    1. Select "Filter".
+    1. If there are posts available in your country they will appear.
+    1. If not, you will have the option to either go back to all posts or to add a new post.
+* I want the ability to create posts.
+    1. Log in/register using the steps above.
+    1. Once on your "My Account" page, select "Add Post" in the navbar. 
+    1. Fill in all the fields on the "Create Post" form. Your email and today's date will be filled in for you. 
+    1. Press the "Submit" button. 
+    1. If you missed a field, an error message will appear asking you to fill in the field.
+    1. If everything was filled in you will be taken back to your "My Account" page and should be able to see your new post. 
+* I want the ability to edit my own posts.
+    1. Log in/register using the steps above.
+    1. Head to your "My Account" page.
+    1. Select the "Edit" button under the post you would like to change.
+    1. Change whichever fields you want on the "Edit Post".
+    1. Press "Submit". 
+* I want the ability to delete my own posts.
+    1. Head to the "Edit Post" section following the steps above.
+    1. Press the "Delete" button at the bottom of the page.
+    1. A modal will pop up asking you to confirm.
+    1. Press the "Delete" button to confirm.  
+* I want the ability to log out of my account.
+    1. When logged in, select the "Sign Out" link on either the navbar or the footer.
+* I want the ability to delete my account and posts.
+    1. Head to the "My Account" page using the steps above. 
+    1. At the bottom of the page, below any posts you may have created, select the "Delete Account" button. 
+    1. A modal will pop up asking you to confirm.
+    1. Press the "Delete" button to confirm.
 
 ### Manual Testing
 
