@@ -412,4 +412,6 @@ All the images (other than the logo) on this website were taken from [Pixabay](h
 
 Thanks to my mentor, Dick Vlaanderen for all of the guidance and for challenging me to improve my project with additional features.
 
+Thanks to the Slack community for peer reviewing my project and giving helpful feedback.
+
 [Back to Top](#table-of-contents)
