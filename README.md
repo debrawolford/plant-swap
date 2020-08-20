@@ -188,10 +188,14 @@ Chrome Developer Tools was used the entirety of my project to test out how the w
 
 The website has been tested on Google Chrome and Safari for mobile and web and on Internet Explorer for web. Depending on the screen size the Jumbotron on the Landing Page can be a little too far down the page or too far up. I tried changing the margins, and adding the my-auto class, but neither of these resolved the issue. Internet Explorer currently also has some styling issues.  
 
+[Am I Responsive](http://ami.responsivedesign.is/) was used throughout the process to ensure that the website rendered well on different screen sizes.
+
+![Image of Am I Responsive](static/images/am-i-responsive.png)
+
 ### Validation Testing
 * HTML: [W3C Markup Validation Service](https://validator.w3.org/) was used to validate. There were many errors due the program not accepting Jinja.
 * CSS: [ W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found.
-* Python: [PEP8 Online] was used to validate. There were some errors about the lines with my comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
+* Python: [PEP8 Online](http://pep8online.com/) was used to validate. There were some errors about the lines with my comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
 
 ### Manual Testing
 
