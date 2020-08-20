@@ -145,6 +145,7 @@ This is a static page which gives instructions on how to use *Plant Swap*. It is
 * A feature to allow users to simply upload images for their personal system, instead of needing to copy and paste a URL from the web.
 * A section on the Account page which would allow users to edit their details (username, email, password, etc.)
 * Back-end form validation. At the moment the forms are only validated on the front-end which isn't secure.  
+* A confirm password field when registering a new account, at the moment new visitors only need to fill their password in once. 
 
 [Back to Top](#table-of-contents)
 
