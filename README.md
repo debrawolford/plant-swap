@@ -12,6 +12,7 @@ A live preview of the site can be found here: [Plant Swap](https://plant-swap-ci
     * [Scope](#scope)
     * [Structure](#structure)
     * [Skeleton](#skeleton)
+1. [Database Structure](#database-structure)    
 1. [Features](#features)
 1. [Technologies Used](#technologies-used)
 1. [Testing](#testing)
@@ -64,6 +65,47 @@ A traditional navigation bar was implemented at the top of each page with the co
 *Please note that the wireframes show the initial design ideas for the website and therefore may not match the current version.*
 
 [Back to Top](#table-of-contents)
+
+## Database Structure
+
+The database for this application is stored in MongoDB. There are three collections currently being used. Below are charts explaining the setup of each collection:
+
+### Countries
+
+Lists all countries in the world.
+
+Key | Value | Type
+----|-------|-------
+_id | Automatically generated number | ObjectId
+country | Name of country | string
+
+### Posts
+
+Stores all posts made by users.
+Key | Value | Type
+----|--------|------
+_id | Automatically generated number | ObjectId
+plant_name | Plant being posted | string
+location | Country user is located in | string
+looking_for | Plant user wants | string
+plant_image | URL for image of plant | string
+date_posted | Automatically generated date | string
+email | Automatically generated email from user | string
+
+### Users
+
+Stores all user accounts. 
+
+Key | Value | Type
+----|--------|------
+_id | Automatically generated number | ObjectId
+username | Unique Username | string
+email | Unique email address | string
+password | Hashed password user entered | Binary
+
+
+[Back to Top](#table-of-contents)
+
 ## Features
 
 ### Existing Features
@@ -196,7 +238,7 @@ The website has been tested on Google Chrome, and Safari for mobile and web and 
 ### Validation Testing
 * HTML: [W3C Markup Validation Service](https://validator.w3.org/) was used to validate. There were many errors due the program not accepting Jinja.
 * CSS: [ W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found.
-* Python: [PEP8 Online](http://pep8online.com/) was used to validate. There were some errors about the lines with comments being too long. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted every time I tried to remove the line break. 
+* Python: [PEP8 Online](http://pep8online.com/) was used to validate. There were some errors about the lines with comments being too long. At a later point I will shorten the comments but for now I have kept them longer so I can understand my code in the future as I am still learning. Another error appeared regarding a line break but I was unable to resolve that as VS Code reformatted automatically every time I tried to remove the line break. 
 
 ### Testing User Stories
 
